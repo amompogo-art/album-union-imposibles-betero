@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#8b1e2d">
+<link rel="manifest" href="manifest.json">
+<title>Álbum de Cromos · Unión Imposibles Betero</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rye&display=swap');
+:root{--red:#8b1e2d;--red2:#c53a32;--cream:#f4e7c7;--ink:#211b18;--gold:#c6a15b;--paper:#ead8ad}
+*{box-sizing:border-box} body{margin:0;background:#27221f;color:var(--ink);font-family:Georgia,serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:5px 5px}
+header{position:sticky;top:0;z-index:20;background:var(--ink);color:var(--cream);border-bottom:5px solid var(--gold);padding:10px}
+.brand{display:flex;align-items:center;gap:12px;max-width:1180px;margin:auto}.brand img{width:58px;height:58px;object-fit:contain}.brand h1{font:700 25px Rye,serif;margin:0}.brand small{font:14px Oswald,sans-serif;letter-spacing:2px}
+nav{display:flex;gap:6px;flex-wrap:wrap;max-width:1180px;margin:10px auto 0}.tab{cursor:pointer;border:2px solid var(--gold);background:var(--red);color:var(--cream);padding:9px 12px;font:600 14px Oswald,sans-serif;text-transform:uppercase}.tab.active,.tab:hover{background:var(--cream);color:var(--red)}
+.actions{max-width:1180px;margin:12px auto;display:flex;gap:8px;flex-wrap:wrap}.btn{cursor:pointer;border:2px solid var(--ink);background:var(--gold);color:var(--ink);padding:9px 12px;font-weight:bold}.btn.secondary{background:var(--cream)}
+main{max-width:1180px;margin:18px auto;padding:0 10px}.page{display:none;background:var(--paper);padding:25px;min-height:800px;border:12px solid var(--red);outline:3px double var(--gold);box-shadow:0 0 0 8px var(--ink),0 12px 35px #0008}.page.active{display:block}.page-title{text-align:center;font:700 34px Rye,serif;color:var(--red);margin:0 0 20px;text-transform:uppercase;letter-spacing:1px}.ribbon{background:var(--red);color:var(--cream);padding:8px 15px;display:inline-block;font:600 18px Oswald,sans-serif;letter-spacing:1px}
+.cover{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:730px;background:repeating-linear-gradient(0deg,#ead8ad,#ead8ad 3px,#e5d0a0 4px)}.cover img{width:210px;height:210px;object-fit:contain;filter:drop-shadow(5px 6px 0 var(--ink))}.cover h2{font:64px Rye,serif;color:var(--red);line-height:1;margin:20px 0 8px;text-shadow:2px 2px var(--gold)}.cover h3{font:700 28px Oswald,sans-serif;letter-spacing:5px;margin:0}.cover .season{margin-top:25px;border:4px double var(--red);padding:10px 24px;font:700 25px Oswald,sans-serif;color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}.card{position:relative;background:#f7edcf;border:5px solid var(--red);padding:10px;box-shadow:4px 4px 0 var(--ink);min-width:0}.card:before{content:"";position:absolute;inset:4px;border:1px dashed var(--gold);pointer-events:none}.photo{height:180px;background:#c9b98e;display:flex;align-items:center;justify-content:center;text-align:center;color:#5c4d37;font:700 15px Oswald,sans-serif;cursor:pointer;background-size:cover;background-position:center;border:3px solid var(--ink);position:relative}.photo span{padding:6px;background:#f4e7c7dd}.card h3{font:700 20px Oswald,sans-serif;color:var(--red);margin:10px 0 3px;text-align:center;text-transform:uppercase}.card p{margin:3px 0;text-align:center;font-size:14px}.number{position:absolute;top:-13px;left:-13px;background:var(--gold);border:3px solid var(--ink);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;font:bold 18px Oswald,sans-serif;z-index:2}.editable{outline:1px dashed transparent;cursor:text}.editable:focus{outline-color:var(--red);background:#fff8}
+.match,.moment{background:#f7edcf;border:4px solid var(--ink);padding:14px;margin:12px 0;display:flex;gap:15px;align-items:center}.match .score{font:700 32px Oswald,sans-serif;color:var(--red);min-width:100px;text-align:center}.moment{display:block}.moment .photo{height:230px}.controls{display:flex;justify-content:center;gap:5px;margin-top:8px}.controls button{border:1px solid var(--ink);background:var(--gold);cursor:pointer}
+footer{text-align:center;color:var(--cream);padding:25px;font:14px Oswald,sans-serif}
+@media(max-width:600px){.brand h1{font-size:19px}.page{padding:13px;border-width:7px}.cover h2{font-size:42px}.cover img{width:150px;height:150px}.page-title{font-size:26px}.photo{height:145px}}
+@media print{body{background:white}.actions,header,footer,.controls{display:none!important}.page{display:none!important;box-shadow:none;outline:none;border:8px solid var(--red);min-height:0;page-break-after:always}.page.active{display:block!important}main{margin:0;padding:0}.photo{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="assets/escudo.png" alt="Escudo Unión Imposibles Betero"><div><h1>Álbum de Cromos</h1><small>UNIÓN IMPOSIBLES BETERO · INFANTIL A</small></div></div>
+  <nav id="tabs">
+    <button class="tab active" data-page="portada">Portada</button><button class="tab" data-page="staff">Cuerpo técnico</button><button class="tab" data-page="plantilla">La plantilla</button><button class="tab" data-page="partidos">Los partidos</button><button class="tab" data-page="momentos">Momentos</button><button class="tab" data-page="especiales">Especiales</button>
+  </nav>
+</header>
+<div class="actions">
+  <button class="btn" id="addBtn">＋ Añadir elemento</button><button class="btn secondary" id="saveBtn">💾 Guardar álbum</button><button class="btn secondary" id="resetBtn">↺ Restaurar textos</button><button class="btn" id="printBtn">🖨️ Imprimir página / PDF</button>
+</div>
+<main>
+<section class="page active" id="portada"><div class="cover"><img src="assets/escudo.png" alt="Escudo"><h2 contenteditable="true" class="editable">Unión<br>Imposibles<br>Betero</h2><h3 contenteditable="true" class="editable">ÁLBUM OFICIAL · INFANTIL A</h3><div class="season editable" contenteditable="true">TEMPORADA 2026 / 2027</div><p contenteditable="true" class="editable">Nuestra historia se escribe juntos.</p></div></section>
+<section class="page" id="staff"><h2 class="page-title">Cuerpo técnico</h2><div id="staffGrid" class="grid"></div></section>
+<section class="page" id="plantilla"><h2 class="page-title">La plantilla</h2><div id="playerGrid" class="grid"></div></section>
+<section class="page" id="partidos"><h2 class="page-title">Los partidos</h2><div id="matchList"></div></section>
+<section class="page" id="momentos"><h2 class="page-title">Momentos para recordar</h2><div id="momentList" class="grid"></div></section>
+<section class="page" id="especiales"><h2 class="page-title">Cromos especiales</h2><div id="specialGrid" class="grid"></div></section>
+</main>
+<footer>Álbum editable · Los cambios se guardan en este dispositivo · Unión Imposibles Betero</footer>
+<input id="fileInput" type="file" accept="image/*" hidden>
+<script>
+const defaults={
+staff:[['Entrenador','Nombre del entrenador'],['2º Entrenador','Nombre'],['Delegado','Nombre'],['Preparador físico','Nombre'],['Entrenador de porteros','Nombre']],
+players:Array.from({length:15},(_,i)=>['Jugador '+(i+1),['PORTERO','DEFENSA','DEFENSA','DEFENSA','DEFENSA','CENTROCAMPISTA','CENTROCAMPISTA','CENTROCAMPISTA','CENTROCAMPISTA','DELANTERO','DELANTERO','PORTERO','DEFENSA','CENTROCAMPISTA','DELANTERO'][i]]),
+matches:Array.from({length:4},(_,i)=>['Jornada '+(i+1),'UNIÓN IMPOSIBLES BETERO','RIVAL','— · —']),
+moments:['Juntos','Celebraciones','Viajes','Entrenamientos','Amistad','Siempre UIB'],
+specials:['ESCUDO','ENTRENADOR','EQUIPO COMPLETO','CAPITÁN','PRIMER PARTIDO','GOL MÁS MEMORABLE']
+};
+let data=JSON.parse(localStorage.getItem('uibAlbum')||'null')||structuredClone(defaults);
+let active='portada', pendingPhoto=null;
+const $=s=>document.querySelector(s);
+function esc(s){return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
+function photo(cls=''){return `<div class="photo ${cls}" data-photo><span>＋ Pulsar para añadir foto</span></div>`}
+function card(i,title,sub,type){return `<article class="card"><b class="number">${i+1}</b>${photo()}<h3 contenteditable="true" class="editable" data-field="${type}" data-i="${i}" data-k="0">${esc(title)}</h3><p contenteditable="true" class="editable" data-field="${type}" data-i="${i}" data-k="1">${esc(sub)}</p><div class="controls"><button data-remove="${type}" data-i="${i}">− Quitar</button></div></article>`}
+function render(){
+ $('#staffGrid').innerHTML=data.staff.map((x,i)=>card(i,x[0],x[1],'staff')).join('');
+ $('#playerGrid').innerHTML=data.players.map((x,i)=>card(i,x[0],x[1],'players')).join('');
+ $('#matchList').innerHTML=data.matches.map((x,i)=>`<article class="match"><b class="number">${i+1}</b><div class="score" contenteditable="true" data-field="matches" data-i="${i}" data-k="3">${esc(x[3])}</div><div><h3 contenteditable="true" class="editable" data-field="matches" data-i="${i}" data-k="0">${esc(x[0])}</h3><p contenteditable="true" class="editable" data-field="matches" data-i="${i}" data-k="1">${esc(x[1])}</p><p contenteditable="true" class="editable" data-field="matches" data-i="${i}" data-k="2">${esc(x[2])}</p></div><div class="controls"><button data-remove="matches" data-i="${i}">− Quitar</button></div></article>`).join('');
+ $('#momentList').innerHTML=data.moments.map((x,i)=>card(i,x,'Escribe una fecha o recuerdo','moments')).join('');
+ $('#specialGrid').innerHTML=data.specials.map((x,i)=>card(i,x,'Cromo especial','specials')).join('');
+}
+function save(){localStorage.setItem('uibAlbum',JSON.stringify(data));}
+function show(page){active=page;document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===page));document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===page));}
+document.addEventListener('click',e=>{
+ const tab=e.target.closest('[data-page]'); if(tab){show(tab.dataset.page);return}
+ const rem=e.target.closest('[data-remove]'); if(rem){data[rem.dataset.remove].splice(+rem.dataset.i,1);save();render();return}
+ const p=e.target.closest('[data-photo]'); if(p){pendingPhoto=p;$('#fileInput').click();return}
+});
+document.addEventListener('input',e=>{
+ const el=e.target.closest('[data-field]');if(!el)return;
+ const field=el.dataset.field,i=+el.dataset.i,k=+el.dataset.k;
+ if(data[field]&&data[field][i])data[field][i][k]=el.innerText.trim(); else if(Array.isArray(data[field]))data[field][i]=el.innerText.trim();
+ save();
+});
+$('#fileInput').addEventListener('change',e=>{const f=e.target.files[0];if(!f||!pendingPhoto)return;const r=new FileReader();r.onload=()=>{pendingPhoto.style.backgroundImage=`url("${r.result}")`;pendingPhoto.innerHTML='';pendingPhoto.dataset.saved=r.result;pendingPhoto=null};r.readAsDataURL(f);});
+$('#addBtn').addEventListener('click',()=>{const map={staff:['Nuevo miembro','Función'],players:['Nuevo jugador','POSICIÓN'],matches:['Nueva jornada','UNIÓN IMPOSIBLES BETERO','RIVAL','— · —'],moments:['Nuevo momento'],specials:['Nuevo cromo']};if(active==='portada'){alert('En la portada puedes editar los textos directamente.');return}data[active==='staff'?'staff':active==='plantilla'?'players':active==='partidos'?'matches':active==='momentos'?'moments':'specials'].push(map[active==='staff'?'staff':active==='plantilla'?'players':active==='partidos'?'matches':active==='momentos'?'moments':'specials']);save();render();});
+$('#saveBtn').addEventListener('click',()=>{save();alert('Álbum guardado en este dispositivo.');});
+$('#resetBtn').addEventListener('click',()=>{if(confirm('¿Restaurar los textos iniciales?')){data=structuredClone(defaults);save();render();}});
+$('#printBtn').addEventListener('click',()=>window.print());
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+render();
+</script>
+</body></html>
