@@ -1,0 +1,16 @@
+{
+  "name": "Álbum Unión Imposibles Betero",
+  "short_name": "Álbum UIB",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#27221f",
+  "theme_color": "#8b1e2d",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "assets/escudo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
